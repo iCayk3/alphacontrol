@@ -1,0 +1,57 @@
+Para pegar o que é enviado no corpo da API precisa colocar o um parametro no metodo e colocar
+a notacao @RequestBody;
+JPA - @Embedded ele associa uma classe como se fosse uma so na hora de criar/salvar/consultar no
+banco de dados. @Embeddable tem que estar na classe que vai ficar unificada no banco de dados.
+
+Validacoes
+@Valid para dizer para o spring qual dto ele tem que validar
+
+@NotNull -> Checa se o campo esta nulo
+@NotBlan -> Checa se o campo esta nulo ou vazio(Usado para string)
+@Email -> checa se o campo é um email
+@Pattern -> checa um padrao de string, necessitando passar o padrao como paramentro do metodo, o padrao é por regex
+regexp
+
+construtor de record
+public NomeRecord(Paramentro){
+    this(parametros do record)
+}
+
+usar DTOs para dados que entram e saem da API
+Pageable e a classe que e colocado ocmo paramentro no metodo do controller para que o metodo consiga entender
+que precisa de uma paginacao
+o retorno desse metodo tem que ser do tipo Page colocando a classe entre <>
+o return tem que ter a busca no repository .map(dto), quem vai definir o tamanho da pagincao e qual pagina
+e o cliente quando requisita com os parametros na url size=? page=?
+assim como tambem a ordem que ele deseja a informacao passando o paramentro sort=parametro do dto que quer
+ordenar
+
+@PageableDefault define o padrao da paginacao sem ser informado na url
+size = ?
+page = ?
+sort = {atributo da classe}
+
+Quando for atualuzar informacoes no banco de dados, e bom criar um metodo de atualzicao na classe.
+Para atualizacoes usar o metodo getReferenceByIf() fo repository
+
+Toda exclusao que fizer usar a exclusao logica
+
+ResponseEntity classe do Spring que controla a resposta devolvida pelo framework
+
+spring tem uma classe que encapsula o endereco da API
+Tem que ser passado como parametro no metodo
+o nome da classe é UriComponentBuilder
+UriComponentBuilder.path("Complemento da URL").buildAndExpand(variavel dinamica).toUri //O buildAndExpand e
+usado quando tem varaiveis dinamicos que precisam ser incluida na URI. O to Uri ele finaliza o codigo.
+
+Quando se cadastra algo por uma APIRest tem que se devolver o codigo 201 e as informacoes que foram cadastrada
+no header da responsta http, por isso se usa o ResponseEntity.created(uri).body(dto)
+
+propriedade para nao enviar o stack tracert de erro do java
+server.error.include-stracktracer = never
+
+@RestControllerAdvice indica para spring que a classe e responsavel por tratar os errors\
+@ExceptionHandler(ExceptionSpring.class) indica qual metodo da classe é um erro
+se passar esse mesmo erro como parametro no metodo pode-se obter os erros.
+criar um dto para enviar o que precisa no corpo da mensagem
+um record pode ser criado dentro da classe

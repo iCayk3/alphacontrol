@@ -1,0 +1,26 @@
+Para a logica de autenticacao precisa ter uma classe indicando que ela e responsavel pela logica de autenticao
+onde podera acessar o banco de dados
+em cima da classe tem que ter a notacao @Service
+e na classe precisa ser implementando a interface UserDetailService
+O spring chama automatico a classe com essas duas notacoes
+
+
+Na classe que define as configuracoes de seguranca tem que ter as anotacoes @Configuration e @WebEnableSecurity
+a @WebEanbleSecuroty avisa ao spring que a classe é uma classe de configuracao de segurancas.
+
+AutenticationsManager e a classe do sping que intermedia a autenticacao do usuario, que dispara o processo de autenticacao
+AutenticationManager.authenticate(token)
+o token do parametro é um dto do prorpio spring sendo necessario fazer uma conversao do nosso dto para o dto
+do spring estanciando um novo objeto new UsernamePasswordAuthenticationToken(login, senha)
+
+Mesmo que injete a classe AutentcationManager no controller, precisa ensiar ao spring como estanciar a classe
+na classe de configuracoe de seguranca ConfigurationSecurity.class tem que criar um metodo
+que devolve um AuthenticationManager com o retonro configuration.getAuthenticationManager esse metodo lança
+uma excecao e tem que usar a notacao @Bean para que o spring identifique o nosso metodo
+
+precisar infomar ao Spring qual a estrategia de hash a autenticacao
+PasswordEncoder é a classe que representa um algoritimo de senha
+BCryptPasswordEncoder é uma classe do proprio spring
+
+A Classe que representa a entidade usuario no processo de autenticacao precisar ter ua interface do spring security
+
