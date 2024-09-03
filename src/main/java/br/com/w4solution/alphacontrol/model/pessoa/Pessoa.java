@@ -28,7 +28,7 @@ public class Pessoa {
     private Endereco endereco;
     @Embedded
     private Contato contato;
-    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Usuario usuario;
     private Boolean ativo = true;
 

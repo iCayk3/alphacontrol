@@ -26,7 +26,7 @@ public class Usuario implements UserDetails {
     @Column(unique = true)
     private String usuario;
     private String senha;
-    @OneToOne
+    @OneToOne(mappedBy = "usuario")
     private Pessoa pessoa;
     @OneToMany(mappedBy = "usuario")
     private List<TransacaoFinanceira> transacaoFinanceira;
