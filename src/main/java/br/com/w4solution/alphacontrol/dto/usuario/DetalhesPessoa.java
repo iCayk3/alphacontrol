@@ -1,4 +1,4 @@
-package br.com.w4solution.alphacontrol.dto;
+package br.com.w4solution.alphacontrol.dto.usuario;
 
 import br.com.w4solution.alphacontrol.model.pessoa.Pessoa;
 import org.hibernate.validator.constraints.NotBlank;

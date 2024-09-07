@@ -1,8 +1,6 @@
-package br.com.w4solution.alphacontrol.dto;
+package br.com.w4solution.alphacontrol.dto.usuario;
 
 import org.hibernate.validator.constraints.NotBlank;
-
-import java.time.LocalDate;
 
 public record UsuarioDados(
         @NotBlank

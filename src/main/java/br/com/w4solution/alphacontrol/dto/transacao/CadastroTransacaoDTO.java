@@ -1,4 +1,4 @@
-package br.com.w4solution.alphacontrol.dto;
+package br.com.w4solution.alphacontrol.dto.transacao;
 
 import br.com.w4solution.alphacontrol.model.financeiro.TipoEntrada;
 import jakarta.validation.constraints.NotBlank;

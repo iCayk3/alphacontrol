@@ -1,6 +1,6 @@
 package br.com.w4solution.alphacontrol.model.pessoa;
 
-import br.com.w4solution.alphacontrol.dto.UsuarioDados;
+import br.com.w4solution.alphacontrol.dto.usuario.UsuarioDados;
 import br.com.w4solution.alphacontrol.model.financeiro.TransacaoFinanceira;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,6 +30,7 @@ public class Usuario implements UserDetails {
     private Pessoa pessoa;
     @OneToMany(mappedBy = "usuario")
     private List<TransacaoFinanceira> transacaoFinanceira;
+
 
     public Usuario(UsuarioDados dados, BCryptPasswordEncoder encoderSenha){
         this.usuario = dados.email();
@@ -69,5 +70,17 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
+    }
+
+    public void atualizarSenha(String senhaAntiga, String senhaNova, BCryptPasswordEncoder encode){
+        if(encode.matches(senhaAntiga, this.senha)){
+            this.senha = encode.encode(senhaNova);
+        }else {
+            throw new RuntimeException("Senha antiga incorreta!");
+        }
+    }
+
+    public void recuperarSenha(String novaSenha, BCryptPasswordEncoder encoderSenha){
+        this.senha = encoderSenha.encode(novaSenha);
     }
 }

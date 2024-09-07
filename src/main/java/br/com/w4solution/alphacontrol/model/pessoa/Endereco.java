@@ -1,6 +1,6 @@
 package br.com.w4solution.alphacontrol.model.pessoa;
 
-import br.com.w4solution.alphacontrol.dto.UsuarioDados;
+import br.com.w4solution.alphacontrol.dto.usuario.UsuarioDados;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

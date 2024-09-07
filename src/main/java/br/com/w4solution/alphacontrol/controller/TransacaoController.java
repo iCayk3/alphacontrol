@@ -1,8 +1,8 @@
 package br.com.w4solution.alphacontrol.controller;
 
-import br.com.w4solution.alphacontrol.dto.CadastroTransacaoDTO;
-import br.com.w4solution.alphacontrol.dto.DadosListagemTransacoes;
-import br.com.w4solution.alphacontrol.dto.DetalhesTransacao;
+import br.com.w4solution.alphacontrol.dto.transacao.CadastroTransacaoDTO;
+import br.com.w4solution.alphacontrol.dto.transacao.DadosListagemTransacoes;
+import br.com.w4solution.alphacontrol.dto.transacao.DetalhesTransacao;
 import br.com.w4solution.alphacontrol.infra.security.TokenSerivceApi;
 import br.com.w4solution.alphacontrol.model.financeiro.TransacaoFinanceira;
 import br.com.w4solution.alphacontrol.model.pessoa.Usuario;

@@ -1,6 +1,6 @@
 package br.com.w4solution.alphacontrol.model.financeiro;
 
-import br.com.w4solution.alphacontrol.dto.CadastroTransacaoDTO;
+import br.com.w4solution.alphacontrol.dto.transacao.CadastroTransacaoDTO;
 import br.com.w4solution.alphacontrol.model.pessoa.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

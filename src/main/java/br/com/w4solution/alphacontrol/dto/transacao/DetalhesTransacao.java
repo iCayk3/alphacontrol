@@ -1,8 +1,7 @@
-package br.com.w4solution.alphacontrol.dto;
+package br.com.w4solution.alphacontrol.dto.transacao;
 
 import br.com.w4solution.alphacontrol.model.financeiro.TipoEntrada;
 import br.com.w4solution.alphacontrol.model.financeiro.TransacaoFinanceira;
-import br.com.w4solution.alphacontrol.model.pessoa.Usuario;
 
 import java.time.LocalDateTime;
 

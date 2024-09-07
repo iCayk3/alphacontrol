@@ -1,6 +1,6 @@
 package br.com.w4solution.alphacontrol.model.pessoa;
 
-import br.com.w4solution.alphacontrol.dto.UsuarioDados;
+import br.com.w4solution.alphacontrol.dto.usuario.UsuarioDados;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.time.LocalDate;
 @Entity(name = "Pessoa")
 @Table(name = "pessoas")
 @AllArgsConstructor
