@@ -7,7 +7,7 @@ import br.com.w4solution.alphacontrol.infra.security.TokenSerivceApi;
 import br.com.w4solution.alphacontrol.model.financeiro.TransacaoFinanceira;
 import br.com.w4solution.alphacontrol.model.pessoa.Usuario;
 import br.com.w4solution.alphacontrol.repository.TransacaoRepository;
-import br.com.w4solution.alphacontrol.repository.UsuaioRepository;
+import br.com.w4solution.alphacontrol.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +24,7 @@ public class TransacaoController {
     @Autowired
     TokenSerivceApi tokenSerivceApi;
     @Autowired
-    UsuaioRepository repository;
+    UsuarioRepository repository;
     @Autowired
     TransacaoRepository transacaoRepository;
 

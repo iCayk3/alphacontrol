@@ -1,7 +1,7 @@
 package br.com.w4solution.alphacontrol.dto.usuario;
 
 import br.com.w4solution.alphacontrol.model.pessoa.Pessoa;
-import org.hibernate.validator.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 public record DetalhesPessoa(
         String nome,

@@ -6,8 +6,10 @@ import br.com.w4solution.alphacontrol.infra.security.TokenSerivceApi;
 import br.com.w4solution.alphacontrol.model.pessoa.Pessoa;
 import br.com.w4solution.alphacontrol.model.pessoa.Usuario;
 import br.com.w4solution.alphacontrol.repository.PessoaRepository;
+import br.com.w4solution.alphacontrol.repository.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -45,11 +47,15 @@ public class UsuarioController {
 
     @PostMapping("/login")
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosLogin dados){
-
-        var token = new UsernamePasswordAuthenticationToken(dados.email(), dados.password());
-        var authentication = manager.authenticate(token);
-        var tokenJWT = tokenSerivceApi.gerarToken((Usuario)authentication.getPrincipal());
-        return ResponseEntity.ok(new TokenDTO(tokenJWT));
+        try {
+            var token = new UsernamePasswordAuthenticationToken(dados.email(), dados.password());
+            var authentication = manager.authenticate(token);
+            var tokenJWT = tokenSerivceApi.gerarToken((Usuario) authentication.getPrincipal());
+            return ResponseEntity.ok(new TokenDTO(tokenJWT));
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping("/cadastro")
@@ -84,7 +90,7 @@ public class UsuarioController {
         return ResponseEntity.ok(new DetalhesPessoa(usuario.get()));
     }
 
-    @DeleteMapping("/excluir/{id}")
+    @DeleteMapping("{id}")
     @Transactional
     public ResponseEntity excluirUsuario(@PathVariable Long id){
         var usuario = pessoaRepository.findById(id);
